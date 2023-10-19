@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <ul>
+            <li><a href= '/orders'>Home</a></li>
+        </ul>
+    </nav>
+    <h1>
+        {{order.customer_name}}'s order </h1>
+
+    <div>
+        <h2> Customer name: {{order.customer_name}}</h2>
+        <h3> {{order.quantity}} copies of {{order.game_title}}</h3>
+        <h4> ordered on: {{order.order_date}}</h4>
+    </div>
+    
+</body>
+</html>

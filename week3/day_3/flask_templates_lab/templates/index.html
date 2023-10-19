@@ -1,0 +1,54 @@
+{% extends 'base.html' %} {%block content%}
+<h1> {{title}} </h1>
+
+{%for event in events %}
+<div></div>
+    <a href="/events/{{events.index(event)}}"><b>{{event.name}}</b></a>
+    <p>Date:{{event.date}}</p>
+    <p>Room:{{event.room}}</p>
+    <p>Number of persons:{{event.number_of_guests}}</p>
+    <p>Description: {{event.description}}</p>
+    <p> Recurring event:
+    {% if event.repeats %}
+        <span>&#9989;</span>
+    {% else %}
+        <span>&#10060;</span>
+        {% endif %}</p>
+
+    <form action="/events/delete/{{event.name}}" method="POST">
+    <input type="submit" value ='Delete Event'>
+    <hr>
+    </form>
+    
+{% endfor %} 
+<form action ='/events' method='post'>
+    <h3> Add an event: </h3>
+    <label for="name">Event Name:</label>
+    <input type="text" name="name" id="name"/>
+    <br>
+    <br>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date"/>
+    <br>
+    <br>
+    <label for="number_of_guests">Guests:</label>
+    <input type="number" name="number_of_guests" id="number_of_guests"/>
+    <br>
+    <br>
+    <label for="room">Space Required:</label>
+    <input type="text" name="room" id="room"/>
+    <br>
+    <br>
+    <label for="description">Description:</label>
+    <textarea name="description" rows ="2" cols="30"></textarea>
+    <br>
+    <br>
+    <label for="repeats">Recurring Event: </label>
+    <input type="checkbox" name="repeats" id="repeats">
+    <br>
+    <input type="submit" value ='add event'>
+
+</form>
+
+
+{% endblock %}

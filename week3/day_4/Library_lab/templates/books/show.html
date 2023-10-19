@@ -1,0 +1,26 @@
+{% extends 'base.html' %} {% block content %}
+<div>
+    <h1>{{book.title}}</h1>
+    <h2>Author: {{book.author}}</h2>
+    <h3>Genre: {{book.genre}}</h3>
+    {% if book.checked_out == True %}
+    <h3> Currently Unavailable </h3>
+    {% else %}
+    <h3> Currently in Stock </h3>
+    {% endif %}
+</div>
+
+
+<form action ='/books/check_in_out/{{book.title}}' method ='POST'>
+    <label for="check">Check Out: </label>
+    <input type = 'radio' name ="check" value = 'out'>
+    <label for="check">Check in: </label>
+    <input type = 'radio' name="check" value = 'in'>
+    <input type = 'submit' value = 'Submit'>
+</form>
+
+<form action ='/books/delete/{{book.title}}' method="POST">
+    <input type ='submit' value = 'Remove from Library'>
+</form>
+
+{%endblock%}

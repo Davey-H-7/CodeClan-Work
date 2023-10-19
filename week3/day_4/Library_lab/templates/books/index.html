@@ -1,0 +1,20 @@
+{% extends 'base.html' %} {% block content %}
+
+<div>
+    <h1>ALL OF OUR BOOKS</h1>
+    {%for book in books %}
+    <article>
+        <a href='/books/{{books.index(book)}}'><h3>{{book.title}}</h3></a>
+        <p><b>Written by: {{book.author}}</b></p>
+        <p>Currently available: 
+            {% if book.checked_out %}
+            <span>&#10060;</span>
+            {% else %} 
+            <span>&#9989;</span>
+            {% endif %}
+        </p>
+    </article>
+
+    {% endfor %}
+</div>
+{% endblock %}

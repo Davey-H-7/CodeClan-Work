@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{title}}</title>
+</head>
+<body>
+    <div id="heading">
+        <nav>
+          <ul>
+            <li>
+                <a href ='/'>Home</a>
+            </li>
+            <li>
+                <a href ='/books'>All Books</a>
+            </li>
+            <li>
+                <a href ='/books/new'>Add a Book</a>
+           </li>
+         </ul>
+     </nav>
+    <span> &#128214; </span>
+    </div>
+    {% block content %} {%endblock%}
+</body>
+</html>
